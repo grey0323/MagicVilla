@@ -40,6 +40,10 @@ namespace MagicVilla.Controllers
 
         public ActionResult<villaDtos> Crearvilla([FromBody] villaDtos villaDtos)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             if (villaDtos == null)
             {
                 return BadRequest(villaDtos);
